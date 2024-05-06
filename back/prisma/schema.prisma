@@ -1,0 +1,134 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+enum Role {
+    SUPERADMIN
+    ADMIN
+    CLIENT
+}
+
+enum BedroomType {
+    SIMPLE
+    COUPLE
+    FAMILY
+}
+
+enum ReservationStatus {
+    CANCELED
+    FINISHED
+    PROGRESS
+}
+
+model User {
+    id            Int            @id @default(autoincrement())
+    email         String         @unique
+    photo         String
+    username      String
+    phone         String         @unique
+    password      String
+    role          Role
+    comments      Comment[]
+    notes         Note[]
+    notifications Notification[]
+    reservations  Reservation[]
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+}
+
+model Bedroom {
+    id            Int          @id @default(autoincrement())
+    place         Int
+    available     Boolean
+    type          BedroomType
+    price         Int
+    description   String
+    comments      Comment[]
+    images        File[]
+    notes         Note[]
+    createdAt     DateTime     @default(now())
+    updatedAt     DateTime     @updatedAt
+    Reservation   Reservation? @relation(fields: [reservationId], references: [id])
+    reservationId Int?
+}
+
+model Comment {
+    id        Int      @id @default(autoincrement())
+    content   String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    User      User?    @relation(fields: [userId], references: [id])
+    userId    Int?
+    Bedroom   Bedroom? @relation(fields: [bedroomId], references: [id])
+    bedroomId Int?
+}
+
+model Note {
+    id        Int      @id @default(autoincrement())
+    value     Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    User      User?    @relation(fields: [userId], references: [id])
+    userId    Int?
+    Bedroom   Bedroom? @relation(fields: [bedroomId], references: [id])
+    bedroomId Int?
+}
+
+model Reservation {
+    id            Int               @id @default(autoincrement())
+    totalPrice    Int
+    comments      String
+    childrens     Int
+    adults        Int
+    status        ReservationStatus @default(PROGRESS)
+    startDate     DateTime
+    endDate       DateTime
+    bedrooms      Bedroom[]
+    notifications Notification[]
+    createdAt     DateTime          @default(now())
+    updatedAt     DateTime          @updatedAt
+    Facture       Facture?
+    User          User?             @relation(fields: [userId], references: [id])
+    userId        Int?
+}
+
+model Facture {
+    id             Int          @id @default(autoincrement())
+    factureDate    DateTime
+    description    String
+    createdAt      DateTime     @default(now())
+    updatedAt      DateTime     @updatedAt
+    Notification   Notification @relation(fields: [notificationId], references: [id])
+    notificationId Int          @unique
+    Reservation    Reservation  @relation(fields: [reservationId], references: [id])
+    reservationId  Int          @unique
+}
+
+model Notification {
+    id            Int          @id @default(autoincrement())
+    title         String
+    description   String
+    createdAt     DateTime     @default(now())
+    updatedAt     DateTime     @updatedAt
+    User          User?        @relation(fields: [userId], references: [id])
+    userId        Int?
+    Facture       Facture?
+    Reservation   Reservation? @relation(fields: [reservationId], references: [id])
+    reservationId Int?
+}
+
+model File {
+    id        Int      @id @default(autoincrement())
+    filename  String
+    mimeType  String
+    url       String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    Bedroom   Bedroom? @relation(fields: [bedroomId], references: [id])
+    bedroomId Int?
+}
