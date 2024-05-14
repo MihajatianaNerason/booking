@@ -1,7 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ReservationService } from './reservation.service';
 import { Prisma } from '@prisma/client';
+import { Public } from 'src/auth/decorators/public';
 
+@Public()
 @Controller('reservation')
 export class ReservationController {
   constructor(private readonly reservationService: ReservationService) {}
@@ -22,7 +32,10 @@ export class ReservationController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReservationDto: Prisma.ReservationUpdateInput) {
+  update(
+    @Param('id') id: string,
+    @Body() updateReservationDto: Prisma.ReservationUpdateInput,
+  ) {
     return this.reservationService.update(+id, updateReservationDto);
   }
 
