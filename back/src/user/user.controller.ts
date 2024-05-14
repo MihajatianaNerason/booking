@@ -1,25 +1,15 @@
-import {
-  Body,
-  Controller,
-  HttpException,
-  HttpStatus,
-  Post,
-} from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { UserService } from './user.service';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { Role } from '@prisma/client';
 
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {}
-  @Post('signup')
-  async signup(@Body() body: any) {
-    try {
-      const user = await this.userService.createUser(body);
-      return user;
-    } catch (error) {
-      throw new HttpException(
-        "l'utilisteur existe déjà",
-        HttpStatus.BAD_REQUEST,
-      );
-    }
+
+  @Roles(Role.CLIENT)
+  @Get()
+  test() {
+    return 'bonjour';
   }
 }
