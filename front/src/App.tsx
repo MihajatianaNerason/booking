@@ -1,12 +1,9 @@
-import { Button } from "./components/ui/button";
+import Login from "./pages/Login/Login";
 
 export default function App() {
   return (
     <>
-      <Button>Hello default</Button>
-      <Button variant={"secondary"}>Hello Secondary</Button>
-      <Button variant={"destructive"}>Hello destructive</Button>
-      <Button variant={"link"}>Hello ghost</Button>
+      <Login/>
     </>
   );
 }
