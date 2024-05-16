@@ -1,12 +1,10 @@
-import { Button } from "./components/ui/button";
+import "./App.css";
+import User from "./pages/User/User";
 
 export default function App() {
   return (
     <>
-      <Button>Hello default</Button>
-      <Button variant={"secondary"}>Hello Secondary</Button>
-      <Button variant={"destructive"}>Hello destructive</Button>
-      <Button variant={"link"}>Hello ghost</Button>
+      <User />
     </>
   );
 }
