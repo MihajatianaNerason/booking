@@ -9,7 +9,7 @@ export default function Anchor() {
   };
   return (
     <div
-      className="w-[50px] h-[50px] rounded-full flex justify-center items-center fixed bottom-4 right-6"
+      className="w-[50px] h-[50px] rounded-full flex justify-center items-center fixed bottom-4 right-6  bg-green-200 shadow-lg "
       id="ancre"
     >
       <a href="#" onClick={scrollToTop}>

@@ -9,7 +9,7 @@ export default function User() {
   return (
     <>
       <NavUser />
-      <div className="h-full flex flex-wrap justify-around items-center">
+      <div className="h-full flex flex-wrap justify-around items-center mt-[80px]">
         <CardUser imgProps={image1} />
         <CardUser imgProps={image2} />
         <CardUser imgProps={image3} />
