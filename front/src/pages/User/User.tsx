@@ -1,12 +1,24 @@
 import CardUser from "./CardUser";
+import NavUser from "./NavUser";
+import image1 from "../../img/1.jpg";
+import image2 from "../../img/2.jpg";
+import image3 from "../../img/3.jpg";
 
 export default function User() {
   return (
-    <div className="h-full flex flex-wrap justify-around items-center">
-      <CardUser />
-      <CardUser />
-      <CardUser />
-      <CardUser />
-    </div>
+    <>
+      <NavUser />
+      <div className="h-full flex flex-wrap justify-around items-center">
+        <CardUser imgProps={image1} />
+        <CardUser imgProps={image2} />
+        <CardUser imgProps={image3} />
+        <CardUser imgProps={image1} />
+        <CardUser imgProps={image3} />
+        <CardUser imgProps={image2} />
+        <CardUser imgProps={image1} />
+        <CardUser imgProps={image2} />
+        <CardUser imgProps={image3} />
+      </div>
+    </>
   );
 }
