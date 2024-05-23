@@ -1,4 +1,4 @@
-import arrow from "../../img/up.svg";
+import arrow from "../img/up.svg";
 
 export default function Anchor() {
   const scrollToTop = () => {
