@@ -21,7 +21,7 @@ export default function CardUser({
   roomName,
   description,
 }: CardUserType) {
-  console.log(imgProps);
+  // console.log(imgProps);
 
   // const url = import.meta.env.BASE_URL + imgProps;
   // console.log(import.meta.env);

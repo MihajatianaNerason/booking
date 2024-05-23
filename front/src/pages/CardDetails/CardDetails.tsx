@@ -1,23 +1,27 @@
-import React from "react";
 import { buttonVariants } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Axios from "axios";
+import NavUser from "../User/NavUser";
 
-interface CardDetailsType {
+interface Comment {
+  user: string;
+  comment: string;
+}
+
+interface BedroomData {
   imgProps: string;
   roomName: string;
   description: string;
   price: string;
   rating: number;
-  comments: Array<{ user: string; comment: string }>;
+  comments: Comment[];
 }
 
-const CardDetails: React.FC<CardDetailsType> = ({
-  imgProps,
-  roomName,
-  description,
-  price,
-  rating,
-  comments,
-}) => {
+export default function CardDetails() {
+  const { id } = useParams();
+  const [data, setData] = useState<BedroomData | null>(null);
+
   const renderStars = (rating: number) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -39,48 +43,140 @@ const CardDetails: React.FC<CardDetailsType> = ({
     return stars;
   };
 
-  return (
-    <div className="container mx-auto p-4">
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <img className="w-full rounded-t-lg" src={imgProps} alt={roomName} />
-        <div className="p-5">
-          <h1 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {roomName}
-          </h1>
-          <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">
-            {description}
-          </p>
-          <p className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-            {price}
-          </p>
-          <div className="flex items-center mb-4">
-            {renderStars(rating)}
-            <span className="ml-2 text-gray-700 dark:text-gray-400">
-              ({rating} out of 5)
-            </span>
-          </div>
-          <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Comments
-          </h2>
-          <ul className="mb-4 space-y-4">
-            {comments.map((comment, index) => (
-              <li key={index} className="border-b border-gray-200 pb-2">
-                <p className="font-semibold text-gray-900 dark:text-white">
-                  {comment.user}
-                </p>
-                <p className="text-gray-700 dark:text-gray-400">
-                  {comment.comment}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <button className={buttonVariants({ variant: "default" })}>
-            Book Now
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+  useEffect(() => {
+    Axios.get(`http://localhost:8080/bedroom/${id}`)
+      .then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.error(error));
+  }, [id]);
 
-export default CardDetails;
+  return (
+    <>
+      <NavUser />
+      {/* <div classNameName="container mx-auto p-4 mt-[80px]">
+        <div classNameName="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div classNameName="p-5">
+            <img src={`/${data?.imgProps}`} alt={data?.roomName} />
+            <h1 classNameName="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {data?.roomName}
+            </h1>
+            <p classNameName="mb-4 font-normal text-gray-700 dark:text-gray-400">
+              {data?.description}
+            </p>
+            <p classNameName="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+              {data?.price}
+            </p>
+            <div classNameName="flex items-center mb-4">
+              {data && renderStars(data.rating)}
+              {data && (
+                <span classNameName="ml-2 text-gray-700 dark:text-gray-400">
+                  ({data.rating} out of 5)
+                </span>
+              )}
+            </div>
+            <h2 classNameName="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              Comments
+            </h2>
+            <ul classNameName="mb-4 space-y-4">
+              {data?.comments.map((comment, index) => (
+                <li key={index} classNameName="border-b border-gray-200 pb-2">
+                  <p classNameName="font-semibold text-gray-900 dark:text-white">
+                    {comment.user}
+                  </p>
+                  <p classNameName="text-gray-700 dark:text-gray-400">
+                    {comment.comment}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <button classNameName={buttonVariants({ variant: "default" })}>
+              Book Now
+            </button>
+          </div>
+        </div>
+      </div> */}
+
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-[80px]">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" className="px-6 py-3">
+              Bedroom image
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Name
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Description
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Price
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Rate
+            </th>
+            <th scope="col" className="px-6 py-3">
+              <button className={buttonVariants({ variant: "default" })}>
+                Book Now
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th
+              scope="row"
+              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              <img
+                src={`/${data?.imgProps}`}
+                alt={data?.roomName}
+                className="w-60"
+              />
+            </th>
+            <td className="px-6 py-4">{data?.roomName}</td>
+            <td className="px-6 py-4">{data?.description}</td>
+            <td className="px-6 py-4">{data?.price}</td>
+            <td className="px-6 py-4">
+              <div className="flex items-center mb-4">
+                {data && renderStars(data.rating)}
+                {data && (
+                  <span className="ml-2 text-gray-700 dark:text-gray-400">
+                    ({data.rating} out of 5)
+                  </span>
+                )}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul className="mb-4 space-y-4">
+        {data?.comments.map((comment, index) => (
+          <li
+            key={index}
+            className="border border-gray-300 rounded-lg shadow-sm p-4 bg-white dark:bg-gray-800 dark:border-gray-700"
+          >
+            <div className=" flex items-center mb-2">
+              <div className="flex-shrink-0 mr-3">
+                <svg
+                  className="w-8 h-8 text-gray-500 dark:text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M10 0a10 10 0 100 20A10 10 0 0010 0zm0 3a3 3 0 110 6 3 3 0 010-6zm0 14c-3.866 0-7-3.134-7-7 0-.221.015-.439.042-.654C4.178 10.835 6.517 12 10 12c3.482 0 5.822-1.165 6.958-2.654.028.215.042.433.042.654 0 3.866-3.134 7-7 7z"></path>
+                </svg>
+              </div>
+              <p className="font-semibold text-gray-900 dark:text-white">
+                {comment.user}
+              </p>
+            </div>
+            <p className="text-gray-700 dark:text-gray-400">
+              {comment.comment}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
