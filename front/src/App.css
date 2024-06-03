@@ -1,0 +1,43 @@
+.header {
+    background-color: rgba(255, 255, 255, 0.85); /* Couleur de fond avec transparence */
+    backdrop-filter: blur(10px); /* Effet de flou pour le verre */
+    -webkit-backdrop-filter: blur(10px); /* Pour une compatibilité avec certains navigateurs */
+  }
+  
+  .header nav ul li a {
+    color: rgba(0, 0, 0, 0.8); /* Couleur du texte */
+  }
+  
+  .header nav ul li a:hover {
+    color: rgba(0, 0, 0, 1); /* Couleur du texte au survol */
+  }
+/*   
+  #ancre {
+  
+  background-color:#d7d3db ;
+  } */
+
+  .loader {
+    border-top-color: #2BD4AC; /* Color of the spinner */
+    -webkit-animation: spin 1s linear infinite; /* For Safari */
+    animation: spin 1s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

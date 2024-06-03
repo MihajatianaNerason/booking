@@ -1,0 +1,184 @@
+{
+  "bedroom": [
+    {
+      "id": 1,
+      "imgProps": "1.jpg",
+      "roomName": "Suite Familiale",
+      "description": "Une suite spacieuse avec vue sur la mer.",
+      "price": "€399 par nuit",
+      "rating": 4.2,
+      "comments": [
+        {
+          "user": "Claire",
+          "comment": "Super séjour, personnel très aimable !"
+        },
+        {
+          "user": "David",
+          "comment": "La vue depuis la chambre était incroyable."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "imgProps": "2.jpg",
+      "roomName": "Chambre Deluxe",
+      "description": "Une chambre confortable avec un lit king-size.",
+      "price": "€259 par nuit",
+      "rating": 4.0,
+      "comments": [
+        {
+          "user": "Sophie",
+          "comment": "Excellent service et petit déjeuner délicieux."
+        },
+        {
+          "user": "Étienne",
+          "comment": "L'emplacement de l'hôtel est parfait pour explorer la ville."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "imgProps": "3.jpg",
+      "roomName": "Appartement Vue sur la Ville",
+      "description": "Un appartement moderne avec vue panoramique.",
+      "price": "€499 par nuit",
+      "rating": 4.5,
+      "comments": [
+        {
+          "user": "Lucas",
+          "comment": "L'appartement était impeccable et bien équipé."
+        },
+        {
+          "user": "Marie",
+          "comment": "Nous avons adoré la terrasse donnant sur la ville."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "imgProps": "1.png",
+      "roomName": "Bungalow Plage",
+      "description": "Un bungalow privé juste à côté de la plage.",
+      "price": "€599 par nuit",
+      "rating": 4.8,
+      "comments": [
+        {
+          "user": "Antoine",
+          "comment": "Endroit parfait pour des vacances reposantes."
+        },
+        {
+          "user": "Emma",
+          "comment": "La plage était magnifique et peu fréquentée."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "imgProps": "3.png",
+      "roomName": "Chambre Simple",
+      "description": "Une chambre confortable avec vue sur le jardin.",
+      "price": "€149 par nuit",
+      "rating": 3.9,
+      "comments": [
+        {
+          "user": "Pierre",
+          "comment": "Bon rapport qualité-prix pour une chambre simple."
+        },
+        {
+          "user": "Julie",
+          "comment": "Le jardin de l'hôtel était très paisible."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "imgProps": "4.png",
+      "roomName": "Suite Executive",
+      "description": "Une suite élégante avec un salon séparé.",
+      "price": "€699 par nuit",
+      "rating": 4.7,
+      "comments": [
+        {
+          "user": "Thomas",
+          "comment": "L'attention aux détails dans la suite était impressionnante."
+        },
+        {
+          "user": "Sophie",
+          "comment": "Le service en chambre était rapide et efficace."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "imgProps": "5.png",
+      "roomName": "Cabane dans les Arbres",
+      "description": "Une expérience unique perchée dans les arbres.",
+      "price": "€349 par nuit",
+      "rating": 4.4,
+      "comments": [
+        {
+          "user": "Gabriel",
+          "comment": "Nous avons adoré être entourés par la nature."
+        },
+        {
+          "user": "Léa",
+          "comment": "La cabane était confortable malgré sa situation dans les arbres."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "imgProps": "6.png",
+      "roomName": "Villa de Luxe",
+      "description": "Une villa luxueuse avec piscine privée.",
+      "price": "€999 par nuit",
+      "rating": 4.9,
+      "comments": [
+        {
+          "user": "Alexandre",
+          "comment": "La villa était tout simplement spectaculaire."
+        },
+        {
+          "user": "Charlotte",
+          "comment": "La piscine privée était un véritable atout."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "imgProps": "7.png",
+      "roomName": "Chambre Standard",
+      "description": "Une chambre confortable avec toutes les commodités nécessaires.",
+      "price": "€199 par nuit",
+      "rating": 3.7,
+      "comments": [
+        {
+          "user": "Nicolas",
+          "comment": "La chambre était propre et bien entretenue."
+        },
+        {
+          "user": "Camille",
+          "comment": "Le personnel de l'hôtel était sympathique et serviable."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "imgProps": "8.png",
+      "roomName": "Loft Moderne",
+      "description": "Un loft spacieux avec un design contemporain.",
+      "price": "€449 par nuit",
+      "rating": 4.3,
+      "comments": [
+        {
+          "user": "Maxime",
+          "comment": "Nous avons adoré l'ambiance moderne du loft."
+        },
+        {
+          "user": "Laura",
+          "comment": "L'emplacement du loft était idéal pour explorer la ville."
+        }
+      ]
+    }
+  ]
+}
