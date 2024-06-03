@@ -55,48 +55,6 @@ export default function CardDetails() {
   return (
     <>
       <NavUser />
-      {/* <div classNameName="container mx-auto p-4 mt-[80px]">
-        <div classNameName="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div classNameName="p-5">
-            <img src={`/${data?.imgProps}`} alt={data?.roomName} />
-            <h1 classNameName="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {data?.roomName}
-            </h1>
-            <p classNameName="mb-4 font-normal text-gray-700 dark:text-gray-400">
-              {data?.description}
-            </p>
-            <p classNameName="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
-              {data?.price}
-            </p>
-            <div classNameName="flex items-center mb-4">
-              {data && renderStars(data.rating)}
-              {data && (
-                <span classNameName="ml-2 text-gray-700 dark:text-gray-400">
-                  ({data.rating} out of 5)
-                </span>
-              )}
-            </div>
-            <h2 classNameName="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              Comments
-            </h2>
-            <ul classNameName="mb-4 space-y-4">
-              {data?.comments.map((comment, index) => (
-                <li key={index} classNameName="border-b border-gray-200 pb-2">
-                  <p classNameName="font-semibold text-gray-900 dark:text-white">
-                    {comment.user}
-                  </p>
-                  <p classNameName="text-gray-700 dark:text-gray-400">
-                    {comment.comment}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <button classNameName={buttonVariants({ variant: "default" })}>
-              Book Now
-            </button>
-          </div>
-        </div>
-      </div> */}
 
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-[80px]">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

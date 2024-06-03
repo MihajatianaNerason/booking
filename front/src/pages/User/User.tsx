@@ -3,6 +3,7 @@ import NavUser from "./NavUser";
 import Anchor from "../../components/Anchor";
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import Loader from "./Loader";
 
 interface Comment {
   user: string;
@@ -47,9 +48,7 @@ export default function User() {
             );
           })
         ) : (
-          <h3 className="bg-red-400 w-full text-center text-xl">
-            Pas de data :(
-          </h3>
+          <Loader />
         )}
       </div>
       <Anchor />

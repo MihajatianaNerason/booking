@@ -21,10 +21,6 @@ export default function CardUser({
   roomName,
   description,
 }: CardUserType) {
-  // console.log(imgProps);
-
-  // const url = import.meta.env.BASE_URL + imgProps;
-  // console.log(import.meta.env);
   return (
     <div className="mt-4 mb-4 max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-md hover:shadow-green-300 flex flex-col justify-between">
       <img className="rounded-t-lg" src={imgProps} alt={roomName} />
